@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="85df417f-acd7-4a00-9bbb-af16eb78c999" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/dreev.json" beforeDir="false" afterPath="$PROJECT_DIR$/agents/dreev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/dreev_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/agents/dreev_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/dummy.json" beforeDir="false" afterPath="$PROJECT_DIR$/agents/dummy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/smach.json" beforeDir="false" afterPath="$PROJECT_DIR$/agents/smach.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents/smart_hems_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/agents/smart_hems_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blackboxes.py" beforeDir="false" afterPath="$PROJECT_DIR$/blackboxes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/lambda_20230606_0000.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/load_smart_hems_20230606_0000.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/costs_20230613_all.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/costs_20230613_no-dreev_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/costs_20230613_no-smach_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/costs_20230613_no-smart_hems_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/costs_recombin_20230613_all.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/costs_recombin_20230613_no-dreev_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/costs_recombin_20230613_no-smach_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/costs_recombin_20230613_no-smart_hems_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/lambdas_20230613_all.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/lambdas_20230613_no-dreev_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/lambdas_20230613_no-smach_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/lambdas_20230613_no-smart_hems_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/loads_20230613_all.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/loads_20230613_no-dreev_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/loads_20230613_no-smach_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/loads_20230613_no-smart_hems_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_input_output/optim_0000000000/remunerations_20230613.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonction_objectif.py" beforeDir="false" afterPath="$PROJECT_DIR$/fonction_objectif.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/optim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postprocessing/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/postprocessing/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postprocessing/calc_shapley_val.py" beforeDir="false" afterPath="$PROJECT_DIR$/postprocessing/calc_shapley_val.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postprocessing/postprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/postprocessing/postprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postprocessing/remuneration.py" beforeDir="false" afterPath="$PROJECT_DIR$/postprocessing/remuneration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recombi.py" beforeDir="false" afterPath="$PROJECT_DIR$/recombi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unused_agents/smart_hems_2.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2i5cm4uECpyJrhHLCURuFccREBd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/i52980/Documents/habitats_connectes/agregosiris/aggregator/agents/initialization",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/agents/initialization" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="85df417f-acd7-4a00-9bbb-af16eb78c999" name="Changes" comment="" />
+      <created>1718784034708</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718784034708</updated>
+    </task>
+    <servers />
+  </component>
+</project>

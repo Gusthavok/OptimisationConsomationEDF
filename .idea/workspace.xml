@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dd425c2d-f670-4178-82a4-f95164d49c65" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/aggregator/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/aggregator/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/agents/dreev.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/agents/dreev_2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/agents/dummy.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/agents/smach.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/agents/smart_hems_1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/blackboxes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/lambda_20230606_0000.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/load_smart_hems_20230606_0000.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/costs_20230613_all.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/costs_20230613_no-dreev_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/costs_20230613_no-smach_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/costs_20230613_no-smart_hems_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/costs_recombin_20230613_all.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/costs_recombin_20230613_no-dreev_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/costs_recombin_20230613_no-smach_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/costs_recombin_20230613_no-smart_hems_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/lambdas_20230613_all.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/lambdas_20230613_no-dreev_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/lambdas_20230613_no-smach_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/lambdas_20230613_no-smart_hems_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/loads_20230613_all.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/loads_20230613_no-dreev_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/loads_20230613_no-smach_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/loads_20230613_no-smart_hems_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/examples_input_output/optim_0000000000/remunerations_20230613.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/fonction_objectif.py" beforeDir="false" afterPath="$PROJECT_DIR$/aggregator/fonction_objectif.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/aggregator/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/aggregator/optim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/postprocessing/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/postprocessing/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/postprocessing/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/postprocessing/calc_shapley_val.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/postprocessing/postprocessing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/postprocessing/remuneration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/recombi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggregator/unused_agents/smart_hems_2.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/aggregator" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2mmfw4PKTfNwbXQ9SpGjSVOHFxG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/i52980/Documents/habitats_connectes/projet_etudiant/aggregator"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python">
+      <module name="projet_etudiant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/aggregator" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/aggregator/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dd425c2d-f670-4178-82a4-f95164d49c65" name="Changes" comment="" />
+      <created>1727686908241</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727686908241</updated>
+    </task>
+    <servers />
+  </component>
+</project>
