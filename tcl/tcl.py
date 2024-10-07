@@ -142,7 +142,7 @@ class Tcl (Agent):
             temperature[t] = current_temperature
             current_temperature = current_temperature + total_load[t] * self.coefConso*self.dt + self.dt*self.coefDeltaTemp*self.chroniqueTempExt[t-1]-self.dt*self.coefDeltaTemp*current_temperature
 
-        return total_load, total_cost, total_temperature
+        return total_load, total_cost, temperature
 
 
 
