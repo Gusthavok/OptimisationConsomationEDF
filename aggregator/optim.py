@@ -60,7 +60,7 @@ def write_dicts_to_csv(profiles_dict_per_it, costs_dict_per_it, lambdas_per_it, 
 def agent_tcl_update_load_helper(args):
     agent, lambdas, date = args
     try:
-        path = os.path.join(os.getcwd(), '..')
+        path = os.path.join(os.getcwd(), './')
         agent.tcl_update_load(lambdas, path = path)
     except RuntimeError:
         return agent.name, 1
@@ -108,13 +108,13 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
         for agent in agents_list:
             try:
                 if not parallel_run:
-                    path = os.path.join(os.getcwd(),'..')
+                    path = os.path.join(os.getcwd(),'./')
                     agent.tcl_update_load(lambdas[agent.name], path = path)
                 else:
                     if results[agent.name] == 1:
                         raise RuntimeError(f"{agent.name} failed to run")
 
-                path = os.path.join(os.getcwd(), '..')
+                path = os.path.join(os.getcwd(), './')
                 new_computed_profile,new_computed_cost = agent.read_output( path = path)
                 new_computed_profile = np.array(new_computed_profile)
                 new_computed_cost = np.array([new_computed_cost])

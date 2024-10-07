@@ -1,0 +1,1196 @@
+Presolving model
+4 rows, 2 cols, 4 nonzeros
+0 rows, 0 cols, 0 nonzeros
+Presolve : Reductions: rows 0(-94); columns 0(-50); elements 0(-100) - Reduced to empty
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Objective value     : -1.2000000000e+04
+HiGHS run time      :          0.00
+Presolving model
+2 rows, 7 cols, 6 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          1    -8.3745309023e+04 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Using EKK primal simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          1    -8.3745341812e+04 Pr: 0(0); Du: 1(30) 0s
+          2    -8.3745309023e+04 Pr: 0(0) 0s
+Model   status      : Optimal
+Simplex   iterations: 2
+Objective value     : -8.3745309023e+04
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          1     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 1
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 4 cols, 5 nonzeros
+Presolve : Reductions: rows 2(-92); columns 4(-46); elements 5(-95)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          1    -1.0431087957e+05 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 1
+Objective value     : -1.0431087957e+05
+HiGHS run time      :          0.00
+Presolving model
+2 rows, 6 cols, 6 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -7.5758677118e+03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Using EKK primal simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          3    -7.5758721873e+03 Pr: 0(0); Du: 1(30) 0s
+          4    -7.5758677118e+03 Pr: 0(0) 0s
+Model   status      : Optimal
+Simplex   iterations: 4
+Objective value     : -7.5758677118e+03
+HiGHS run time      :          0.00
+Presolving model
+2 rows, 6 cols, 6 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          2    -5.6382374070e+03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Using EKK primal simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          2    -5.6382415074e+03 Pr: 0(0); Du: 1(30) 0s
+          3    -5.6382374070e+03 Pr: 0(0) 0s
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -5.6382374070e+03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+2 rows, 5 cols, 5 nonzeros
+2 rows, 4 cols, 5 nonzeros
+Presolve : Reductions: rows 2(-92); columns 4(-46); elements 5(-95)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          1    -1.7961673555e+04 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Using EKK primal simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          1    -1.7961683140e+04 Pr: 0(0); Du: 1(30) 0s
+          2    -1.7961673555e+04 Pr: 0(0) 0s
+Model   status      : Optimal
+Simplex   iterations: 2
+Objective value     : -1.7961673555e+04
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 4 cols, 5 nonzeros
+Presolve : Reductions: rows 2(-92); columns 4(-46); elements 5(-95)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          1    -2.4902564994e+04 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 1
+Objective value     : -2.4902564994e+04
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 4 cols, 5 nonzeros
+Presolve : Reductions: rows 2(-92); columns 4(-46); elements 5(-95)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          1    -4.3507831208e+03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 1
+Objective value     : -4.3507831208e+03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 4 cols, 5 nonzeros
+Presolve : Reductions: rows 2(-92); columns 4(-46); elements 5(-95)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          1    -2.7368454763e+03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 1
+Objective value     : -2.7368454763e+03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 8 cols, 10 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          2    -5.1817839110e+03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 2
+Objective value     : -5.1817839110e+03
+HiGHS run time      :          0.00
+Presolving model
+2 rows, 7 cols, 6 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -1.8191230027e+03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Using EKK primal simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          3    -1.8191281980e+03 Pr: 0(0); Du: 1(30) 0s
+          5    -1.8191230027e+03 Pr: 0(0) 0s
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -1.8191230027e+03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -2.4224885435e+03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -2.4224885435e+03
+HiGHS run time      :          0.00
+Presolving model
+2 rows, 6 cols, 6 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -8.2867137652e+02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Using EKK primal simplex solver
+  Iteration        Objective     Infeasibilities num(sum)
+          3    -8.2867431581e+02 Pr: 0(0); Du: 1(30) 0s
+          4    -8.2867137652e+02 Pr: 0(0) 0s
+Model   status      : Optimal
+Simplex   iterations: 4
+Objective value     : -8.2867137652e+02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -4.0212147200e+01 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -4.0212147200e+01
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -2.1672885674e+02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -2.1672885674e+02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          2    -4.1624758711e+02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 2
+Objective value     : -4.1624758711e+02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 8 cols, 10 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -1.1406541551e+02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -1.1406541551e+02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 8 cols, 10 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          2    -2.0109047848e+01 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 2
+Objective value     : -2.0109047848e+01
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 8 cols, 10 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -2.1828995984e+01 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -2.1828995984e+01
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -1.9240286656e+01 Pr: 0(0) 0s
+          3    -1.9240286656e+01 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -1.9240286656e+01
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -5.0838132000e-01 Pr: 0(0) 0s
+          3    -5.0838132000e-01 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -5.0838132000e-01
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -2.5096561040e+00 Pr: 0(0) 0s
+          3    -2.5096561040e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -2.5096561040e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -3.2065963320e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -3.2065963320e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          4    -5.6856840240e+00 Pr: 0(0) 0s
+          4    -5.6856840240e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 4
+Objective value     : -5.6856840240e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 7 cols, 9 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -2.1411807998e-02 Pr: 0(0) 0s
+          6    -2.1411807998e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -2.1411807998e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          7    -7.3444280001e-03 Pr: 0(0) 0s
+          7    -7.3444280001e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 7
+Objective value     : -7.3444280001e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -9.4953240009e-03 Pr: 0(0) 0s
+          6    -9.4953240009e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -9.4953240009e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -8.6934160008e-03 Pr: 0(0) 0s
+          6    -8.6934160008e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -8.6934160008e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -4.1674559998e-03 Pr: 0(0) 0s
+          5    -4.1674559998e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -4.1674559998e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -1.6069520002e-03 Pr: 0(0) 0s
+          5    -1.6069520002e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -1.6069520002e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -5.9674948000e-02 Pr: 0(0) 0s
+          5    -5.9674948000e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -5.9674948000e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -2.8931079996e-03 Pr: 0(0) 0s
+          6    -2.8931079996e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -2.8931079996e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -7.5250519994e-03 Pr: 0(0) 0s
+          5    -7.5250519994e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -7.5250519994e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          4     0.0000000000e+00 Pr: 0(0) 0s
+          4     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 4
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -6.5464959998e-03 Pr: 0(0) 0s
+          6    -6.5464959998e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -6.5464959998e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -8.9977640000e-03 Pr: 0(0) 0s
+          5    -8.9977640000e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -8.9977640000e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -6.3531119999e-03 Pr: 0(0) 0s
+          6    -6.3531119999e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -6.3531119999e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -9.4296160000e-03 Pr: 0(0) 0s
+          6    -9.4296160000e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -9.4296160000e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -6.9483480002e-03 Pr: 0(0) 0s
+          5    -6.9483480002e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -6.9483480002e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -1.2281423999e-02 Pr: 0(0) 0s
+          6    -1.2281423999e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -1.2281423999e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -8.4752000002e-03 Pr: 0(0) 0s
+          5    -8.4752000002e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -8.4752000002e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -1.7067356001e-02 Pr: 0(0) 0s
+          6    -1.7067356001e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -1.7067356001e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -1.6749927999e-02 Pr: 0(0) 0s
+          6    -1.6749927999e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -1.6749927999e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -1.0384284001e-02 Pr: 0(0) 0s
+          6    -1.0384284001e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -1.0384284001e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3    -4.4397584440e+01 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     : -4.4397584440e+01
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -1.0072152000e-02 Pr: 0(0) 0s
+          6    -1.0072152000e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -1.0072152000e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          7    -1.0792436000e-02 Pr: 0(0) 0s
+          7    -1.0792436000e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 7
+Objective value     : -1.0792436000e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          4    -9.6662120000e-03 Pr: 0(0) 0s
+          4    -9.6662120000e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 4
+Objective value     : -9.6662120000e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -2.7889240000e-03 Pr: 0(0) 0s
+          6    -2.7889240000e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -2.7889240000e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          2    -2.1178518868e+01 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 2
+Objective value     : -2.1178518868e+01
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          4    -4.1129520000e-03 Pr: 0(0) 0s
+          4    -4.1129520000e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 4
+Objective value     : -4.1129520000e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -1.2258355998e-02 Pr: 0(0) 0s
+          6    -1.2258355998e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -1.2258355998e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -1.1432980000e-02 Pr: 0(0) 0s
+          6    -1.1432980000e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -1.1432980000e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -6.8101119996e-03 Pr: 0(0) 0s
+          6    -6.8101119996e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -6.8101119996e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -1.1086831999e-02 Pr: 0(0) 0s
+          6    -1.1086831999e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -1.1086831999e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          7    -7.8853959999e-03 Pr: 0(0) 0s
+          7    -7.8853959999e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 7
+Objective value     : -7.8853959999e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -2.2029808000e-02 Pr: 0(0) 0s
+          5    -2.2029808000e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -2.2029808000e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -6.4329239999e-03 Pr: 0(0) 0s
+          5    -6.4329239999e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -6.4329239999e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -5.1294676000e-02 Pr: 0(0) 0s
+          6    -5.1294676000e-02 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -5.1294676000e-02
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -2.8780399998e-03 Pr: 0(0) 0s
+          6    -2.8780399998e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -2.8780399998e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          3     0.0000000000e+00 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 3
+Objective value     :  0.0000000000e+00
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -7.1095879998e-03 Pr: 0(0) 0s
+          6    -7.1095879998e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -7.1095879998e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -7.5414280000e-03 Pr: 0(0) 0s
+          5    -7.5414280000e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -7.5414280000e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          4    -4.3649400000e-03 Pr: 0(0) 0s
+          4    -4.3649400000e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 4
+Objective value     : -4.3649400000e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -3.3853080008e-03 Pr: 0(0) 0s
+          6    -3.3853080008e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -3.3853080008e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          6    -8.8264999990e-03 Pr: 0(0) 0s
+          6    -8.8264999990e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 6
+Objective value     : -8.8264999990e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -2.1087800001e-03 Pr: 0(0) 0s
+          5    -2.1087800001e-03 Pr: 0(0) 0s
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Simplex   iterations: 5
+Objective value     : -2.1087800001e-03
+HiGHS run time      :          0.00
+Presolving model
+4 rows, 6 cols, 8 nonzeros
+2 rows, 5 cols, 6 nonzeros
+Presolve : Reductions: rows 2(-92); columns 5(-45); elements 6(-94)
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+          5    -2.9241160000e-03 Pr: 0(0); Du: 1(1.87861e-06) 0s
+          5    -2.9241160000e-03 Pr: 0(0); Du: 1(1.87861e-06) 0s
+Model   status      : Unknown
+Simplex   iterations: 5
+Objective value     : -2.9241160000e-03
+HiGHS run time      :          0.00

@@ -8,7 +8,6 @@ import json
 from linopy import Model
 from pathlib import Path
 
-sys.path.append('..')
 from aggregator.agent import Agent
 
 
