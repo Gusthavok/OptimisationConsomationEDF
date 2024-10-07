@@ -7,8 +7,8 @@ import datetime
 import json
 from linopy import Model
 from pathlib import Path
+from random import random
 
-sys.path.append('..')
 from aggregator.agent import Agent
 
 
@@ -65,6 +65,7 @@ class Tcl (Agent):
         for t in range(1,T):
             temp_profile[t] = temp_profile[t - 1] + load_profile[t] * self.coefConso*self.dt + self.dt*self.coefDeltaTemp*(self.chroniqueTempExt[t-1]-temp_profile[t-1])
         return temp_profile
+
     def solve_optim_model(self, signal):
         m = Model()
         T = len(self.electricity_cost)
@@ -117,6 +118,35 @@ class Tcl (Agent):
             path = os.path.join(self.output_path, self.name + '.json')
         dico_output = json.load(open(path, "r"))
         return dico_output["load"],dico_output['cost']
+    
+    def get_passive_load(self):
+        phase_croissante = random()>.5
+        current_temperature = self.initial_temperature
+
+        T = len(self.electricity_cost)
+
+        total_load = np.zeros(T)
+        total_cost = 0
+        temperature = np.zeros(T)
+
+        for t in range(T):
+            if not phase_croissante and current_temperature<self.temperature_min:
+                phase_croissante=True
+
+            if phase_croissante and current_temperature < self.temperature_max:
+                total_load[t] = self.puissanceMax
+            else:
+                total_load[t] = self.puissanceMin
+            total_cost += total_load[t] * (self.electricity_cost[t]*self.dt + signal[t])
+
+            temperature[t] = current_temperature
+            current_temperature = current_temperature + total_load[t] * self.coefConso*self.dt + self.dt*self.coefDeltaTemp*self.chroniqueTempExt[t-1]-self.dt*self.coefDeltaTemp*current_temperature
+
+        return total_load, total_cost, total_temperature
+
+
+
+
 
 
 if __name__ == '__main__':

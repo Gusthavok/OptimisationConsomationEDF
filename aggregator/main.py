@@ -6,7 +6,6 @@ import time
 import datetime
 import shutil
 
-sys.path.append('..')
 from tcl.tcl import Tcl
 
 
@@ -60,7 +59,7 @@ params.output_dir = optim_dir
 
 # Ajout des TCL:
 agents_list = []
-input_tcl_file = os.path.join(os.getcwd(),'..','tcl','input')
+input_tcl_file = os.path.join(os.getcwd(),'OptimisationConsomationEDF','tcl','input')
 for directory in os.listdir(input_tcl_file):
     file_name = os.path.join(input_tcl_file,directory,directory+'.json')
     if os.path.isfile(file_name):
