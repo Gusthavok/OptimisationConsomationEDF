@@ -23,7 +23,7 @@ def optimize(params, agents_list, suffix: str) :
     #Frank Wolfe
     # (agent_profiles_dict, agent_costs_dict) = optim_bruteforce_lambdas(params, agents_list, suffix)
     (agent_profiles_dict, agent_costs_dict) = optim_frankwolfe(params, agents_list, suffix)
-    #Recombinaison
+        #Recombinaison
     # best_iteration_per_agent =None
     best_iteration_per_agent=recombine(params, agents_list, suffix, agent_profiles_dict, agent_costs_dict)
     
@@ -200,6 +200,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
 
             print(f'Distance to the value of the problem: {upper_bound}')
             print(f'rho : {params.rho}')
+            print(f'rémunération : {curtailement.fobj(params,profile_aggreg)}')
             if upper_bound < 0:
                 print("problem upper bound negatif")
 

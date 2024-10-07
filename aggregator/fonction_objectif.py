@@ -46,4 +46,4 @@ def objective_fun(params,profile_aggreg,agents_profile_ditct,agents_list,dict_in
                 cost_agents_sum += agent_bb.get_local_cost(np.array(agents_profile_ditct[agent_bb.name]))
             elif agent_bb.__class__.__name__ == 'Tcl':
                 cost_agents_sum += agent_bb.individual_cost(agents_profile_ditct[agent_bb.name])
-    return fobj(params, profile_aggreg) +f_0(params, profile_aggreg,p_agents_aggregated) + cost_agents_sum
+    return fobj(params, profile_aggreg) + f_0(params, profile_aggreg,p_agents_aggregated) + cost_agents_sum
