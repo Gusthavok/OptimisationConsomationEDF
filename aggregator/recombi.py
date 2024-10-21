@@ -1,6 +1,4 @@
-import numpy as np
 import os
-import time
 import pandas as pd
 
 from curtailement import add_expr_fonction_objectif

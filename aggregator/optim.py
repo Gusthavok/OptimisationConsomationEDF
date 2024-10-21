@@ -14,8 +14,6 @@ import step_optimization
 
 os.environ['XPRESS'] = '/opt/shared/agregi/env_python/bin/xpauth.xpr'
 
-from linopy import Model
-
 import multiprocessing as mp
 
 def optimize(params, agents_list, suffix: str) :

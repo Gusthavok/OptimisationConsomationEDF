@@ -1,12 +1,7 @@
-import pandas as pd
 import numpy as np
-import scipy
-import os, sys
-import time
-import datetime
+import os
 import json
 from linopy import Model
-from pathlib import Path
 from random import random
 
 from aggregator.agent import Agent
@@ -73,7 +68,9 @@ class Tcl (Agent):
         state = {}
         obj_expr = 0
         for t in range(T):
-            p[t] = m.add_variables(name="p_{}".format(t), lower=self.puissanceMin, upper=self.puissanceMax)
+            z = m.add_variables(name="z_{}".format(t), lower=0, upper=1, vartype="binary")
+
+            p[t] = self.puissanceMin + z * (self.puissanceMax - self.puissanceMin)
             obj_expr += p[t] * (self.electricity_cost[t] *self.dt + signal[t])
 
             state[t] = m.add_variables(name="temperature_instant_{}".format(t), lower=self.temperature_min, upper=self.temperature_max)
