@@ -1,5 +1,5 @@
 import numpy as np
-from curtailement import  fobj, f_0
+from .curtailement import  fobj, f_0
 
 def fully_linearized_cost(omega,params, aggregator_profiles,agent_profiles,aggregator_costs,agents_costs,agents_list):
     """

@@ -68,7 +68,7 @@ class Tcl (Agent):
         state = {}
         obj_expr = 0
         for t in range(T):
-            z = m.add_variables(name="z_{}".format(t), lower=0, upper=1, vartype="binary")
+            z = m.add_variables(name="z_{}".format(t), binary=True)
             p[t] = self.puissanceMin + z * (self.puissanceMax - self.puissanceMin)
             
             obj_expr += p[t] * (self.electricity_cost[t] *self.dt + signal[t])

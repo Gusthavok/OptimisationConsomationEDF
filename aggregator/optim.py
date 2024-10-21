@@ -3,18 +3,22 @@ import os
 import time
 import pandas as pd
 from scipy.optimize import  Bounds, LinearConstraint, minimize
+import matplotlib.pyplot as plt
 
 from tcl.tcl import Tcl
 
-from recombi import recombine
+from .recombi import recombine
 
-import fonction_objectif 
-import curtailement 
-import step_optimization
+from .fonction_objectif import build_dico_individual_cost, objective_fun
+from .curtailement import *
+from .step_optimization import *
 
 os.environ['XPRESS'] = '/opt/shared/agregi/env_python/bin/xpauth.xpr'
 
 import multiprocessing as mp
+
+affichage_y_min=.1
+
 
 def optimize(params, agents_list, suffix: str) :
 
@@ -58,7 +62,7 @@ def write_dicts_to_csv(profiles_dict_per_it, costs_dict_per_it, lambdas_per_it, 
 def agent_tcl_update_load_helper(args):
     agent, lambdas, date = args
     try:
-        path = os.path.join(os.getcwd(), 'OptimisationConsomationEDF')
+        path = os.getcwd()
         agent.tcl_update_load(lambdas, path = path)
     except RuntimeError:
         return agent.name, 1
@@ -67,7 +71,15 @@ def agent_tcl_update_load_helper(args):
 
 
 def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)):
-
+    ## affichage
+    fig, ax = plt.subplots()
+    line, = ax.plot([], label='upper bound evolution')
+    ax.set_xlim(0, 10)  # Ajuster la limite x si nécessaire
+    ax.set_ylim(affichage_y_min, affichage_y_min+1)   # Ajuster la limite y si nécessaire
+    ax.set_yscale('log')
+    ax.set_xlabel('Iteration')
+    ax.set_ylabel('upper_bound')
+    ax.legend()
 
     profile_aggreg = np.zeros(48)
     num_it = 0
@@ -78,6 +90,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
     lambdas_per_it = {}
     aggregator_profiles_dict_per_it = {} ## keep in memory successive profiles through iteratations
     aggregator_costs_dict_per_it= {}  ## keep in memory successive agregator costs through iteratations
+    upper_bound_list=[]
 
     df_conv = pd.DataFrame(data = None, columns=['iteration','cost','upper_bound','rho'])
 
@@ -87,14 +100,19 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
         print("\nIteration Frank-Wolfe : ", num_it, "(agents: ", suffix,")")
 
         # Compute the new signal to send to each agent
-        lambdas = curtailement.derivarite_f0(params, profile_aggreg,agent_averaged_profile_dict, agents_list)
+        lambdas = derivarite_f0(params, profile_aggreg,agent_averaged_profile_dict, agents_list)
         lambdas_per_it[num_it] = lambdas
 
-
         profiles_dict_per_it[num_it] = {} ## keep in memory successive profiles through iteratations
-        costs_dict_per_it[num_it] = {}  ## keep in memory successive agents costs through iteratations
+        costs_dict_per_it[num_it] = {}
+        if num_it>0:
+            for key in profiles_dict_per_it[num_it-1]:
+                profiles_dict_per_it[num_it][key] = profiles_dict_per_it[num_it-1][key]  ## keep in memory successive agents costs through iteratations
 
-        parallel_run = True
+            for key in costs_dict_per_it[num_it-1]:
+                costs_dict_per_it[num_it][key] = costs_dict_per_it[num_it-1][key]  ## keep in memory successive agents costs through iteratations
+
+        parallel_run = False
 
         if parallel_run:
             N = len(agents_list)
@@ -102,46 +120,56 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
             work = [(agent, lambdas[agent.name], params.date) for agent in agents_list]
             res = ProcessPool.map(agent_tcl_update_load_helper, work)
             results =  dict(res)
+        
+        if num_it==0:
+            bernouilli=np.ones(shape=(len(agents_list)))
+        else:
+            bernouilli = np.random.binomial(n=1, p=step_it, size=(len(agents_list)))
 
-        for agent in agents_list:
-            try:
-                if not parallel_run:
-                    path = os.path.join(os.getcwd(),'OptimisationConsomationEDF')
-                    agent.tcl_update_load(lambdas[agent.name], path = path)
-                else:
-                    if results[agent.name] == 1:
-                        raise RuntimeError(f"{agent.name} failed to run")
+        for k, agent in enumerate(agents_list):
+            if bernouilli[k]:
+                try:
+                    if not parallel_run:
+                        path = os.path.join(os.getcwd(),'')
+                        agent.tcl_update_load(lambdas[agent.name], path = path)
+                    else:
+                        if results[agent.name] == 1:
+                            raise RuntimeError(f"{agent.name} failed to run")
 
-                path = os.path.join(os.getcwd(), 'OptimisationConsomationEDF')
-                new_computed_profile,new_computed_cost = agent.read_output( path = path)
-                new_computed_profile = np.array(new_computed_profile)
-                new_computed_cost = np.array([new_computed_cost])
+                    path = os.path.join(os.getcwd(), '')
+                    new_computed_profile,new_computed_cost = agent.read_output( path = path)
+                    new_computed_profile = np.array(new_computed_profile)
+                    new_computed_cost = np.array([new_computed_cost])
 
-                profiles_dict_per_it[num_it][agent.name] = new_computed_profile ## keep in memory successive profiles through iteratations
+                    profiles_dict_per_it[num_it][agent.name] = new_computed_profile ## keep in memory successive profiles through iteratations
 
-                ##profile cost without lambda term
-                costs_dict_per_it[num_it][agent.name]= new_computed_cost[0] - np.dot(lambdas[agent.name],new_computed_profile)
+                    ##profile cost without lambda term
+                    costs_dict_per_it[num_it][agent.name]= new_computed_cost[0] - np.dot(lambdas[agent.name],new_computed_profile)
 
 
-            except RuntimeError:
-                profiles_dict_per_it[num_it][agent.name] = (None)
+                except RuntimeError:
+                    profiles_dict_per_it[num_it][agent.name] = (None)
+            else:
+                profiles_dict_per_it[num_it][agent.name] = agent_averaged_profile_dict[agent.name]
+
 
         #market value of iteration
-        costs_dict_per_it[num_it]["market"] = curtailement.calcule_vobj_marche(params,agents_list, profiles_dict_per_it[num_it])
+        costs_dict_per_it[num_it]["market"] = calcule_vobj_marche(params,agents_list, profiles_dict_per_it[num_it])
 
         # optimize market subproblem wrt lambda
-        new_profile_aggreg = curtailement.optim_aggreg_profile_new(params,lambdas['aggregator'])
+        new_profile_aggreg = optim_aggreg_profile_new(params,lambdas['aggregator'])
         aggregator_profiles_dict_per_it[num_it] = new_profile_aggreg
-        aggregator_costs_dict_per_it[num_it] =  curtailement.fobj(params,new_profile_aggreg)
+        aggregator_costs_dict_per_it[num_it] =  fobj(params,new_profile_aggreg)
 
         if num_it>0 and params.fully_corrective:
             
-            warm_start_step_it, memory_size = step_optimization.update_warm_start_step_it(num_it,params,step_it)
+            warm_start_step_it, memory_size = update_warm_start_step_it(num_it,params,step_it)
 
-            aggregator_profiles, agent_profiles, aggregator_costs, agents_costs =step_optimization.preparation_dict_cvx_combination(num_it,memory_size,aggregator_profiles_dict_per_it,profile_aggreg,profiles_dict_per_it,
-                                                                                                                    agent_averaged_profile_dict,aggregator_costs_dict_per_it,cost_aggregator_averaged,                                                                                                                    costs_dict_per_it,costs_dict_individual_averaged,agents_list)
+            aggregator_profiles, agent_profiles, aggregator_costs, agents_costs =preparation_dict_cvx_combination(num_it,memory_size,aggregator_profiles_dict_per_it,profile_aggreg,profiles_dict_per_it,
+                                                                                                                    agent_averaged_profile_dict,aggregator_costs_dict_per_it,cost_aggregator_averaged, 
+                                                                                                                    costs_dict_per_it,costs_dict_individual_averaged,agents_list)
 
-            step_it, val = step_optimization.update_fully_corrective(params,warm_start_step_it,aggregator_profiles,agent_profiles,aggregator_costs,agents_costs,agents_list)
+            step_it, val = update_fully_corrective(params,warm_start_step_it,aggregator_profiles,agent_profiles,aggregator_costs,agents_costs,agents_list)
 
             print(f"Pas optimal : {step_it} value {val}")
 
@@ -151,10 +179,11 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
             for agent_bb in agents_list:
                 agent_averaged_profile_dict[agent_bb.name] = sum(np.array([step_it[k]*agent_profiles[k][agent_bb.name] for k in agent_profiles.keys()]))
         else:
-            step_it = step_optimization.closed_loop_step(num_it)
-
-            for agent_bb in agents_list:
-                agent_averaged_profile_dict[agent_bb.name] = step_it*profiles_dict_per_it[num_it][agent_bb.name] + (1-step_it)*agent_averaged_profile_dict[agent_bb.name]
+            step_it = closed_loop_step(num_it)
+            
+            for k, agent_bb in enumerate(agents_list):
+                if bernouilli[k]:
+                    agent_averaged_profile_dict[agent_bb.name] = profiles_dict_per_it[num_it][agent_bb.name] 
 
             profile_aggreg = step_it*new_profile_aggreg + (1-step_it)*profile_aggreg
 
@@ -162,8 +191,8 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
         aggreg_indiv_profiles = sum(profiles_dict_per_it[num_it][agent_bb.name] for agent_bb in agents_list)
 
         #Computations of the new individual cost averaged cost
-        costs_dict_individual_averaged = fonction_objectif.build_dico_individual_cost(agent_averaged_profile_dict,agents_list)
-        cost_aggregator_averaged = curtailement.fobj(params, profile_aggreg)
+        costs_dict_individual_averaged = build_dico_individual_cost(agent_averaged_profile_dict,agents_list)
+        cost_aggregator_averaged = fobj(params, profile_aggreg)
 
         #Print profiles on reference and shaving periods
         print_profile = True
@@ -183,22 +212,24 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
 
             print('new averaged aggreg profile (p):\n', profile_aggreg[params.period_init[0]:params.period_finale[1]])
 
-        avg_cost = fonction_objectif.objective_fun(params,profile_aggreg,agent_averaged_profile_dict,agents_list,costs_dict_individual_averaged)
+        avg_cost = objective_fun(params,profile_aggreg,agent_averaged_profile_dict,agents_list,costs_dict_individual_averaged)
         print(f'Cost of avg strat : {avg_cost}')
 
         # Calcul d'un upper bound à la distance de la valeur du problème. Upper bound donné https://www.iro.umontreal.ca/~marcotte/ARTIPS/1986_MP.pdf
         compute_upper_bound = True
         if compute_upper_bound:
             upper_bound = np.dot(np.array(lambdas['aggregator']), profile_aggreg - new_profile_aggreg)
-            upper_bound = upper_bound + curtailement.fobj(params,profile_aggreg) - curtailement.fobj(params,new_profile_aggreg)
+            upper_bound = upper_bound + fobj(params,profile_aggreg) - fobj(params,new_profile_aggreg)
             for agent_bb in agents_list:
                 upper_bound = upper_bound + np.dot(np.array(lambdas[agent_bb.name]),agent_averaged_profile_dict[agent_bb.name] - profiles_dict_per_it[num_it][agent_bb.name]  )
                 local_cost_averaged_profile  = agent_bb.individual_cost(agent_averaged_profile_dict[agent_bb.name])
                 upper_bound = upper_bound + local_cost_averaged_profile - costs_dict_per_it[num_it][agent_bb.name]
 
+            if num_it>0:
+                upper_bound_list.append(max(upper_bound, affichage_y_min))
             print(f'Distance to the value of the problem: {upper_bound}')
             print(f'rho : {params.rho}')
-            print(f'rémunération : {curtailement.fobj(params,profile_aggreg)}')
+            print(f'rémunération : {fobj(params,profile_aggreg)}')
             if upper_bound < 0:
                 print("problem upper bound negatif")
 
@@ -207,7 +238,17 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
         df_conv = pd.concat([df_conv if not df_conv.empty else None,df_it],ignore_index=True)
         df_conv.to_csv(os.path.join(params.output_dir,'convergence.csv'), sep = ';')
 
+        if num_it>0:
+            line.set_xdata(range(len(upper_bound_list)))
+            line.set_ydata(upper_bound_list)
+            
+            ax.set_xlim(0, len(upper_bound_list))
+            ax.set_ylim(affichage_y_min, max(upper_bound_list))
+        
+        
+            plt.savefig('plot.png')
         num_it += 1
+
 
     if params.output_dir: ##export results
         write_dicts_to_csv(profiles_dict_per_it, costs_dict_per_it, lambdas_per_it, params.output_dir, params.date, suffix)

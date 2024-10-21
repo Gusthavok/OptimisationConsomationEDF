@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import numpy as np
-from optim import optimize
+from aggregator.optim import optimize
 import os, sys
 import time
 import datetime
@@ -38,15 +38,15 @@ class Parameters :
         self.spot_prices=np.array([30 for k in range(self.nombre_rectangles)]) #np.array([30 for k in range(self.nombre_rectangles)])
 
         #optim params
-        self.max_iter_FrankWolfe = int(sys.argv[1]) if len(sys.argv) > 1 else 10000
+        self.max_iter_FrankWolfe = 200 #int(sys.argv[1]) if len(sys.argv) > 1 else 200
         self.rho = 5
-        self.fully_corrective = True
-        self.depth_fully_corrective = 1 # nombre des précédentes ittérations dont nous souhaitons garder la solution à leur sous pb
+        self.fully_corrective = False # Si utilisation de FWS, mettre False.
+        self.depth_fully_corrective = 10 # nombre des précédentes ittérations dont nous souhaitons garder la solution à leur sous pb
 
         ##output params
         self.output_dir = "output_optim"
 
-def get_consomation_passive():
+def main():
     # signature = {datetime.datetime.now():%Y-%m-%d_%H-%M-%S_%f}
     params=Parameters()
     os.makedirs(params.output_dir, exist_ok=True)
@@ -66,16 +66,15 @@ def get_consomation_passive():
         if os.path.isfile(file_name):
             tcl = Tcl.from_json(file_name)
             agents_list.append(tcl)
-    
-    output_agents = []
-    for agent in agents_list:
-        output_agents.append(agent.get_passive_load())
-    
-    return output_agents
-    
 
 
-    ## On récupère les courbes de températures, puissance et facture : 
+    ##Optimisation : Frank Wolfe + recombinaison sur liste "agents_list" complete (on rajoute le suffixe "_all" aux fichiers de sorties )
+    suffix = "_all"
+    print("\nRunning optimize for all agents")
+    (agent_profiles_dict, agent_costs_dict, best_iteration_per_agent) = optimize(params, agents_list, suffix)
 
+    print("\nSolution recombinée :")
+    print(best_iteration_per_agent)
 
-    
+if __name__=="__main__":
+    main()

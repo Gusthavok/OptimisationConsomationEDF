@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-from curtailement import add_expr_fonction_objectif
+from .curtailement import add_expr_fonction_objectif
 
 os.environ['XPRESS'] = '/opt/shared/agregi/env_python/bin/xpauth.xpr'
 

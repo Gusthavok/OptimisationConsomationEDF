@@ -1,12 +1,8 @@
 import numpy as np
-import os
-import time
-import pandas as pd
 from scipy.optimize import  Bounds, LinearConstraint, minimize
 
-from tcl.tcl import Tcl
-from fonction_objectif import *
-from curtailement import  *
+from .fonction_objectif import *
+from .curtailement import  *
 
 
 def update_fully_corrective(params,warm_start,aggregator_profiles,agent_profiles,aggregator_costs,agents_costs,agents_list):
