@@ -4,7 +4,7 @@ import time
 import pandas as pd
 from scipy.optimize import  Bounds, LinearConstraint, minimize
 import matplotlib.pyplot as plt
-
+import copy 
 from tcl.tcl import Tcl
 
 from .recombi import recombine
@@ -90,7 +90,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
     lambdas_per_it = {}
     aggregator_profiles_dict_per_it = {} ## keep in memory successive profiles through iteratations
     aggregator_costs_dict_per_it= {}  ## keep in memory successive agregator costs through iteratations
-    upper_bound_list=[]
+    cout_min_liste=[]
 
     df_conv = pd.DataFrame(data = None, columns=['iteration','cost','upper_bound','rho'])
 
@@ -122,12 +122,16 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
             results =  dict(res)
         
         if num_it==0:
-            bernouilli=np.ones(shape=(len(agents_list)))
+            num_try=1
+            bernoulli=np.ones(shape=(1, len(agents_list)))
         else:
-            bernouilli = np.random.binomial(n=1, p=step_it, size=(len(agents_list)))
+            num_try = 1 # int(1+np.sqrt(num_it))
+            bernoulli = np.random.binomial(n=1, p=step_it, size=(num_try, len(agents_list)))
 
+        flags = np.sum(bernoulli, axis=0)
+        
         for k, agent in enumerate(agents_list):
-            if bernouilli[k]:
+            if flags[k]:
                 try:
                     if not parallel_run:
                         path = os.path.join(os.getcwd(),'')
@@ -180,13 +184,32 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
                 agent_averaged_profile_dict[agent_bb.name] = sum(np.array([step_it[k]*agent_profiles[k][agent_bb.name] for k in agent_profiles.keys()]))
         else:
             step_it = closed_loop_step(num_it)
-            
-            for k, agent_bb in enumerate(agents_list):
-                if bernouilli[k]:
-                    agent_averaged_profile_dict[agent_bb.name] = profiles_dict_per_it[num_it][agent_bb.name] 
+            cout_min=None
+            agent_averaged_profile_dict_best_test = {}
 
             profile_aggreg = step_it*new_profile_aggreg + (1-step_it)*profile_aggreg
 
+            for test in range(num_try):
+                agent_averaged_profile_dict_test={}
+                
+                for k, agent_bb in enumerate(agents_list):
+                    if bernoulli[test][k]:
+                        agent_averaged_profile_dict_test[agent_bb.name] = profiles_dict_per_it[num_it][agent_bb.name] 
+                    else:
+                        agent_averaged_profile_dict_test[agent_bb.name] = agent_averaged_profile_dict[agent_bb.name] 
+
+                costs_dict_individual_averaged_test= build_dico_individual_cost(agent_averaged_profile_dict_test,agents_list)
+
+                cout_test = objective_fun(params,profile_aggreg,agent_averaged_profile_dict_test,agents_list,costs_dict_individual_averaged_test)
+                
+                if cout_min is None or cout_min>cout_test:
+                    cout_min=cout_test
+                    agent_averaged_profile_dict_best_test = copy.deepcopy(agent_averaged_profile_dict_test)
+                    
+            agent_averaged_profile_dict=agent_averaged_profile_dict_best_test
+            cout_min_liste.append(max(cout_min, affichage_y_min))
+
+            
         aggreg_averaged_indiv_profiles = sum(agent_averaged_profile_dict[agent_bb.name] for agent_bb in agents_list)
         aggreg_indiv_profiles = sum(profiles_dict_per_it[num_it][agent_bb.name] for agent_bb in agents_list)
 
@@ -225,8 +248,6 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
                 local_cost_averaged_profile  = agent_bb.individual_cost(agent_averaged_profile_dict[agent_bb.name])
                 upper_bound = upper_bound + local_cost_averaged_profile - costs_dict_per_it[num_it][agent_bb.name]
 
-            if num_it>0:
-                upper_bound_list.append(max(upper_bound, affichage_y_min))
             print(f'Distance to the value of the problem: {upper_bound}')
             print(f'rho : {params.rho}')
             print(f'rémunération : {fobj(params,profile_aggreg)}')
@@ -238,15 +259,18 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
         df_conv = pd.concat([df_conv if not df_conv.empty else None,df_it],ignore_index=True)
         df_conv.to_csv(os.path.join(params.output_dir,'convergence.csv'), sep = ';')
 
-        if num_it>0:
-            line.set_xdata(range(len(upper_bound_list)))
-            line.set_ydata(upper_bound_list)
-            
-            ax.set_xlim(0, len(upper_bound_list))
-            ax.set_ylim(affichage_y_min, max(upper_bound_list))
+
+        ## Sauvegarder le graphe
+        line.set_xdata(range(len(cout_min_liste)))
+        line.set_ydata(cout_min_liste)
+        
+        ax.set_xlim(0, len(cout_min_liste))
+        ax.set_ylim(affichage_y_min, max(cout_min_liste))
+    
+    
+        plt.savefig('plot.png')
         
         
-            plt.savefig('plot.png')
         num_it += 1
 
 

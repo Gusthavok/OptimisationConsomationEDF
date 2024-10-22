@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import json
-from linopy import Model
+import linopy  
 from random import random
 
 from aggregator.agent import Agent
@@ -62,7 +62,7 @@ class Tcl (Agent):
         return temp_profile
 
     def solve_optim_model(self, signal):
-        m = Model()
+        m = linopy.Model()
         T = len(self.electricity_cost)
         p = {}
         state = {}

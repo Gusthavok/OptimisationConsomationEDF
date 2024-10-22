@@ -1,0 +1,13 @@
+Se renseigner sur les modalités du rapport et de la soutenance. 
+Paralléliser (solve des modeles et évaluation des couts), 
+Passer à des N_tcl grand
+Retirer les print de linopy
+
+
+Idées pour améliorer : 
+- Deux paramètres modifiables : num_try et step_it
+- regarder de la littérature sur step_it
+- Fully-corrective binaire : garder en mémoire l'optimisation des K dernières étapes. On trouve la solution qui est CL de ces K dernières étapes. 
+- faire un step_it(tcl) (genre ceux avec le plus de puissance sont plus souvent testés)
+- comparer entre la premiere iteration (qui est l'optimal de chaque tcl) et l'iteration n (plus c'est différent, plus le tcl est flexible.)
+- différencier les variables agregator/agregee
