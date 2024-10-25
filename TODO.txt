@@ -2,7 +2,7 @@ Se renseigner sur les modalités du rapport et de la soutenance.
 Paralléliser (solve des modeles et évaluation des couts), 
 Passer à des N_tcl grand
 Retirer les print de linopy
-
+graphe plus complet avec (cout, somme des factures + la rémunération marché(profil aggrégé des consommateurs), upperbound, etc. )
 
 Idées pour améliorer : 
 - Deux paramètres modifiables : num_try et step_it
@@ -11,3 +11,5 @@ Idées pour améliorer :
 - faire un step_it(tcl) (genre ceux avec le plus de puissance sont plus souvent testés)
 - comparer entre la premiere iteration (qui est l'optimal de chaque tcl) et l'iteration n (plus c'est différent, plus le tcl est flexible.)
 - différencier les variables agregator/agregee
+- warm start linopy
+- transformer notre problème linopy en problème sur pulp (chatgpt)

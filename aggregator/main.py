@@ -40,7 +40,7 @@ class Parameters :
         #optim params
         self.max_iter_FrankWolfe = int(sys.argv[1]) if len(sys.argv) > 1 else 200
         self.rho = 1
-        self.fully_corrective = True
+        self.fully_corrective = False
         self.depth_fully_corrective = 10 # nombre des précédentes ittérations dont nous souhaitons garder la solution à leur sous pb
 
         ##output params

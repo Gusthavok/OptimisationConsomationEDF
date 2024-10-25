@@ -72,14 +72,28 @@ def agent_tcl_update_load_helper(args):
 
 def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)):
     ## affichage
-    fig, ax = plt.subplots()
-    line, = ax.plot([], label='upper bound evolution')
-    ax.set_xlim(0, 10)  # Ajuster la limite x si nécessaire
-    ax.set_ylim(affichage_y_min, affichage_y_min+1)   # Ajuster la limite y si nécessaire
-    ax.set_yscale('log')
-    ax.set_xlabel('Iteration')
-    ax.set_ylabel('upper_bound')
-    ax.legend()
+    fig, ax = plt.subplots(3,2, figsize= (10,8))
+    line, = ax[0,0].plot([], label='cout min evolution')
+    line2, = ax[0,1].plot([], label='average cost evolution')
+    line3, = ax[1,0].plot([], label='upper_bound evolution')
+    line4, = ax[1,1].plot([], label='time per iteration')
+    line5, = ax[2,0].plot([], label='num_try evolution')
+    line6, = ax[2,1].plot([], label='step_it evolution')
+    
+    for a in ax.flat:
+        a.set_xlabel('Iteration')
+        a.set_xlim(0, 10)  # Ajuster la limite x si nécessaire
+        a.set_ylim(affichage_y_min, affichage_y_min+1)   # Ajuster la limite y si nécessaire
+        
+    ax[0,0].set_ylabel('cout min')
+    ax[0,1].set_ylabel('average cost')
+    ax[1,0].set_ylabel('upper_bound')
+    ax[1,1].set_ylabel('time')
+    ax[2,0].set_ylabel('num_try')
+    ax[2,1].set_ylabel('step_it')
+    
+    for a in ax.flat:
+        a.legend()
 
     profile_aggreg = np.zeros(48)
     num_it = 0
@@ -91,12 +105,18 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
     aggregator_profiles_dict_per_it = {} ## keep in memory successive profiles through iteratations
     aggregator_costs_dict_per_it= {}  ## keep in memory successive agregator costs through iteratations
     cout_min_liste=[]
+    time_per_iteration = []
+    avg_cost_list = []
+    upper_bound_list = []
+    num_try_list = []
+    step_it_list = []
 
     df_conv = pd.DataFrame(data = None, columns=['iteration','cost','upper_bound','rho'])
 
     agent_averaged_profile_dict = { agent_bb.name: np.zeros(48) for agent_bb in agents_list}
-        
+    
     while (num_it <= params.max_iter_FrankWolfe):
+        t_init_iter = time.time()
         print("\nIteration Frank-Wolfe : ", num_it, "(agents: ", suffix,")")
 
         # Compute the new signal to send to each agent
@@ -112,27 +132,33 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
             for key in costs_dict_per_it[num_it-1]:
                 costs_dict_per_it[num_it][key] = costs_dict_per_it[num_it-1][key]  ## keep in memory successive agents costs through iteratations
 
-        parallel_run = False
-
-        if parallel_run:
-            N = len(agents_list)
-            ProcessPool = mp.Pool(processes=N)
-            work = [(agent, lambdas[agent.name], params.date) for agent in agents_list]
-            res = ProcessPool.map(agent_tcl_update_load_helper, work)
-            results =  dict(res)
         
-        if num_it==0:
+        if num_it<=1:
             num_try=1
+            num_try_list.append(num_try)
             bernoulli=np.ones(shape=(1, len(agents_list)))
         else:
             num_try = 1 # int(1+np.sqrt(num_it))
+            num_try_list.append(num_try)
             bernoulli = np.random.binomial(n=1, p=step_it, size=(num_try, len(agents_list)))
 
         flags = np.sum(bernoulli, axis=0)
+
+
+        parallel_run = False
+    
+        if parallel_run:
+            N = np.sum(flags != 0)
+            work = [(agent, lambdas[agent.name], params.date) for k, agent in enumerate(agents_list) if flags[k]]
+
+            with mp.Pool(processes=N) as ProcessPool:
+                res = ProcessPool.map(agent_tcl_update_load_helper, work)
+            results =  dict(res)
+            
         
         for k, agent in enumerate(agents_list):
-            if flags[k]:
-                try:
+            try:
+                if flags[k]:
                     if not parallel_run:
                         path = os.path.join(os.getcwd(),'')
                         agent.tcl_update_load(lambdas[agent.name], path = path)
@@ -140,21 +166,19 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
                         if results[agent.name] == 1:
                             raise RuntimeError(f"{agent.name} failed to run")
 
-                    path = os.path.join(os.getcwd(), '')
-                    new_computed_profile,new_computed_cost = agent.read_output( path = path)
-                    new_computed_profile = np.array(new_computed_profile)
-                    new_computed_cost = np.array([new_computed_cost])
+                path = os.path.join(os.getcwd(), '')
+                new_computed_profile,new_computed_cost = agent.read_output( path = path)
+                new_computed_profile = np.array(new_computed_profile)
+                new_computed_cost = np.array([new_computed_cost])
 
-                    profiles_dict_per_it[num_it][agent.name] = new_computed_profile ## keep in memory successive profiles through iteratations
+                profiles_dict_per_it[num_it][agent.name] = new_computed_profile ## keep in memory successive profiles through iteratations
 
-                    ##profile cost without lambda term
-                    costs_dict_per_it[num_it][agent.name]= new_computed_cost[0] - np.dot(lambdas[agent.name],new_computed_profile)
+                ##profile cost without lambda term
+                costs_dict_per_it[num_it][agent.name]= new_computed_cost[0] - np.dot(lambdas[agent.name],new_computed_profile)
 
 
-                except RuntimeError:
-                    profiles_dict_per_it[num_it][agent.name] = (None)
-            else:
-                profiles_dict_per_it[num_it][agent.name] = agent_averaged_profile_dict[agent.name]
+            except RuntimeError:
+                profiles_dict_per_it[num_it][agent.name] = (None)
 
 
         #market value of iteration
@@ -174,7 +198,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
                                                                                                                     costs_dict_per_it,costs_dict_individual_averaged,agents_list)
 
             step_it, val = update_fully_corrective(params,warm_start_step_it,aggregator_profiles,agent_profiles,aggregator_costs,agents_costs,agents_list)
-
+            step_it_list.append(step_it)
             print(f"Pas optimal : {step_it} value {val}")
 
             # Nouveau profil aggregateur
@@ -184,6 +208,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
                 agent_averaged_profile_dict[agent_bb.name] = sum(np.array([step_it[k]*agent_profiles[k][agent_bb.name] for k in agent_profiles.keys()]))
         else:
             step_it = closed_loop_step(num_it)
+            step_it_list.append(step_it)
             cout_min=None
             agent_averaged_profile_dict_best_test = {}
 
@@ -237,6 +262,8 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
 
         avg_cost = objective_fun(params,profile_aggreg,agent_averaged_profile_dict,agents_list,costs_dict_individual_averaged)
         print(f'Cost of avg strat : {avg_cost}')
+        
+        avg_cost_list.append(avg_cost)
 
         # Calcul d'un upper bound à la distance de la valeur du problème. Upper bound donné https://www.iro.umontreal.ca/~marcotte/ARTIPS/1986_MP.pdf
         compute_upper_bound = True
@@ -255,21 +282,40 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
                 print("problem upper bound negatif")
 
         # Save results of the iteration
+        upper_bound_list.append(max(upper_bound,affichage_y_min))
         df_it = pd.DataFrame.from_dict({'iteration': [num_it],'cost':[avg_cost],'upper_bound':[upper_bound], 'rho':params.rho})
         df_conv = pd.concat([df_conv if not df_conv.empty else None,df_it],ignore_index=True)
         df_conv.to_csv(os.path.join(params.output_dir,'convergence.csv'), sep = ';')
+        time_lenght_iter = time.time()-t_init_iter
+        time_per_iteration.append(time_lenght_iter)
 
 
-        ## Sauvegarder le graphe
+        ## Sauvegarder les graphes
         line.set_xdata(range(len(cout_min_liste)))
+        line2.set_xdata(range(len(avg_cost_list)))
+        line3.set_xdata(range(len(upper_bound_list)))
+        line4.set_xdata(range(len(time_per_iteration)))
+        line5.set_xdata(range(len(num_try_list)))
+        line6.set_xdata(range(len(step_it_list)))
         line.set_ydata(cout_min_liste)
+        line2.set_ydata(avg_cost_list)
+        line3.set_ydata(upper_bound_list)
+        line4.set_ydata(time_per_iteration)
+        line5.set_ydata(num_try_list)
+        line6.set_ydata(step_it_list)
         
-        ax.set_xlim(0, len(cout_min_liste))
-        ax.set_ylim(affichage_y_min, max(cout_min_liste))
-    
-    
-        plt.savefig('plot.png')
+        for a in ax.flat:
+            a.set_xlim(0, len(cout_min_liste))
+            
+        ax[0,0].set_ylim(-3000, 6000)
+        ax[0,1].set_ylim(-3000, 6000)
+        ax[1,0].set_ylim(affichage_y_min, max(upper_bound_list))
+        ax[1,1].set_ylim(0, max(time_per_iteration))
+        ax[2,0].set_ylim(0, max(num_try_list))
+        ax[2,1].set_ylim(0, max(step_it_list))
         
+        plt.savefig('plot.png')   
+        time.sleep(.1)     
         
         num_it += 1
 
