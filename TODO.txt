@@ -13,3 +13,5 @@ Idées pour améliorer :
 - différencier les variables agregator/agregee
 - warm start linopy
 - transformer notre problème linopy en problème sur pulp (chatgpt)
+
+Commencer à écrire le 
