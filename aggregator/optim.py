@@ -169,7 +169,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
                             raise RuntimeError(f"{agent.name} failed to run")
 
                 path = os.path.join(os.getcwd(), '')
-                new_computed_profile,new_computed_cost = agent.read_output( path = path)
+                new_computed_profile,new_computed_cost, facture = agent.read_output( path = path)
                 new_computed_profile = np.array(new_computed_profile)
                 new_computed_cost = np.array([new_computed_cost])
 
@@ -205,11 +205,16 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
             step_it_list.append(step_it)
             print(f"Pas optimal : {step_it} value {val}")
 
+            cumulative_intervals = np.cumsum(step_it)
+            r = np.random.random()
+            result = np.searchsorted(cumulative_intervals, r) + 1
             # Nouveau profil aggregateur
-            profile_aggreg = sum([step_it[k]*aggregator_profiles[k] for k in aggregator_profiles.keys()])
+            profile_aggreg = aggregator_profiles[result]
             #nouveau profils agents
             for agent_bb in agents_list:
-                agent_averaged_profile_dict[agent_bb.name] = sum(np.array([step_it[k]*agent_profiles[k][agent_bb.name] for k in agent_profiles.keys()]))
+                r = np.random.random()
+                result = np.searchsorted(cumulative_intervals, r) + 1
+                agent_averaged_profile_dict[agent_bb.name] = agent_profiles[result][agent_bb.name]
         else:
             step_it = closed_loop_step(num_it)
             step_it_list.append(step_it)
@@ -320,7 +325,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
         ax[2,0].set_ylim(0, max(num_try_list)+1)
         ax[2,1].set_ylim(0, max(step_it_list))
         
-        plt.savefig('plot.png')   
+        plt.savefig('plot_fully_corrective_sto.png')   
         time.sleep(.1)     
         
         num_it += 1

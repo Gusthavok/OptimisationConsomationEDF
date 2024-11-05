@@ -1,8 +1,9 @@
-Se renseigner sur les modalités du rapport et de la soutenance. 
-Paralléliser (solve des modeles et évaluation des couts), 
-Passer à des N_tcl grand
+A faire : 
+Se renseigner sur les modalités du rapport et de la soutenance. Quand rendre le rapport, saund donner la soutenance 
+
+
+
 Retirer les print de linopy
-graphe plus complet avec (cout, somme des factures + la rémunération marché(profil aggrégé des consommateurs), upperbound, etc. )
 
 Idées pour améliorer : 
 - Deux paramètres modifiables : num_try et step_it

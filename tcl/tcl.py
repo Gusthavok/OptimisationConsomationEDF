@@ -95,8 +95,10 @@ class Tcl (Agent):
 
     def tcl_update_load(self,signal, path= None):
         (total_cost, total_load) = self.solve_optim_model(signal)
+        facture = self.individual_cost(total_load)
         dico = {"load" : list(total_load),
-                'cost' : total_cost
+                'cost' : total_cost, 
+                'facture': facture
         }
         if path:
             json_path = os.path.join(path,self.output_path, self.name+'.json')
@@ -114,7 +116,8 @@ class Tcl (Agent):
         else :
             path = os.path.join(self.output_path, self.name + '.json')
         dico_output = json.load(open(path, "r"))
-        return dico_output["load"],dico_output['cost']
+        
+        return dico_output["load"],dico_output['cost'], dico_output["facture"]
     
     def get_passive_load(self):
         phase_croissante = random()>.5
