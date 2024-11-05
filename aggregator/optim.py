@@ -142,6 +142,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
             num_try = 1 # int(1+np.sqrt(num_it))
             num_try_list.append(num_try)
             bernoulli = np.random.binomial(n=1, p=step_it, size=(num_try, len(agents_list)))
+            bernoulli = np.concatenate((np.zeros(shape=(1, len(agents_list))), bernoulli), axis=0)
 
         flags = np.sum(bernoulli, axis=0)
 
@@ -175,8 +176,10 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
                 profiles_dict_per_it[num_it][agent.name] = new_computed_profile ## keep in memory successive profiles through iteratations
 
                 ##profile cost without lambda term
-                costs_dict_per_it[num_it][agent.name]= new_computed_cost[0] - np.dot(lambdas[agent.name],new_computed_profile)
-
+                if flags[k]:
+                    costs_dict_per_it[num_it][agent.name]= new_computed_cost[0] - np.dot(lambdas[agent.name],new_computed_profile)
+                else:
+                    costs_dict_per_it[num_it][agent.name]= costs_dict_per_it[num_it-1][agent.name]
 
             except RuntimeError:
                 profiles_dict_per_it[num_it][agent.name] = (None)
@@ -311,10 +314,7 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
             
         
         ax[0,0].set_ylim(-3000, 6000)
-        
-        max_fact = 1.5*max([0] + facture_list[len(facture_list)-20:]) if len(facture_list)>20 else max([0] + facture_list)
-        min_fact = 1.5*min([0]+facture_list[len(facture_list)-20:]) if len(facture_list)>20 else min([0] + facture_list)
-        ax[0,1].set_ylim(min_fact, max_fact)
+        ax[0,1].set_ylim(min(facture_list)-5, max(facture_list)+5)
         ax[1,0].set_ylim(0, max(upper_bound_list))
         ax[1,1].set_ylim(0, max(time_per_iteration))
         ax[2,0].set_ylim(0, max(num_try_list)+1)
