@@ -194,7 +194,6 @@ def optim_frankwolfe(params, agents_list, suffix: str, lambda_start=np.zeros(48)
         aggregator_costs_dict_per_it[num_it] =  fobj(params,new_profile_aggreg)
 
         if num_it>0 and params.fully_corrective:
-            
             warm_start_step_it, memory_size = update_warm_start_step_it(num_it,params,step_it)
 
             aggregator_profiles, agent_profiles, aggregator_costs, agents_costs =preparation_dict_cvx_combination(num_it,memory_size,aggregator_profiles_dict_per_it,profile_aggreg,profiles_dict_per_it,
