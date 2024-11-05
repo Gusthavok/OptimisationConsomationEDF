@@ -27,15 +27,15 @@ class Parameters :
         #Périodes
         #définies par un couple (pas de temps debut - inclu, pas de temps fin - non inclu)
         self.period_init=(36,38) #Période de ref initiale
-        self.period_eff=(38,40) #Période de ref finale
-        self.period_finale=(40,42) # Période effacement
+        self.period_eff=(38,40) # Période effacement
+        self.period_finale=(40,42) #Période de ref finale
         self.largeur_rectangles=2 #largeur des rectangles d'effacement, en pas de temps. Ex: 2 --> 1h
 
         ##on suppose que la taille de la période d'effacement est un multiple de la largeur des rectangles
         self.nombre_rectangles= (self.period_eff[1] - self.period_eff[0]) // self.largeur_rectangles
 
         #rémunération effacement pour chaque rectangle de period_eff
-        self.spot_prices=np.array([30 for k in range(self.nombre_rectangles)]) #np.array([30 for k in range(self.nombre_rectangles)])
+        self.spot_prices=np.array([8 for k in range(self.nombre_rectangles)]) #np.array([30 for k in range(self.nombre_rectangles)])
 
         #optim params
         self.max_iter_FrankWolfe = 200 #int(sys.argv[1]) if len(sys.argv) > 1 else 200
