@@ -71,7 +71,7 @@ def optim_frankwolfe_fixed_step(params, agents_list, suffix: str, lambda_start=n
         new_iteration.load_profiles_tcl,  new_iteration.costs_tcl = get_partial_optimization(flags, agents_list, new_iteration.lambdas)
         
         # Détermination du tirage parmis les différents tirage réalisés (dimension num_try de bernouilli) qui minimise la fonction à optimiser. 
-        new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl, cout_minimal = get_best_try(tab_bernouilli, new_iteration, last_iteration, agents_list, params)
+        new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl, cout_minimal = get_best_try(tab_bernouilli, [last_iteration, new_iteration], agents_list, params)
 
 
         ##### Save results of the iteration ##### 

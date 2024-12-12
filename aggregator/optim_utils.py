@@ -220,7 +220,6 @@ def get_best_try(tab_bernouilli: np.ndarray, liste_iteration : list[Iteration], 
         test_stochastic_costs={}
         for k, agent_bb in enumerate(agents_list):
             iteration_indice = round(tab_bernouilli[test][k])
-            print("iteration_indice", iteration_indice)
             if (iteration_indice == len(liste_iteration)) or (fully_corrective): 
                 test_stochastic_profiles[agent_bb.name] = liste_iteration[iteration_indice].load_profiles_tcl[agent_bb.name] 
                 test_stochastic_costs[agent_bb.name] = liste_iteration[iteration_indice].costs_tcl[agent_bb.name] 
