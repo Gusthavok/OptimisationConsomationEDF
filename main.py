@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 import numpy as np
 from aggregator.optim import optimize
-import os, sys
-import time
+import os
 import datetime
-import shutil
+import argparse
 
 from tcl.tcl import Tcl
 
@@ -46,7 +45,7 @@ class Parameters :
         ##output params
         self.output_dir = "output_optim"
 
-def main():
+def main(rho=.05, type_optim="fixed_step", function_for_num_try="constant_to_1"):
     # signature = {datetime.datetime.now():%Y-%m-%d_%H-%M-%S_%f}
     params=Parameters()
     os.makedirs(params.output_dir, exist_ok=True)
@@ -67,14 +66,37 @@ def main():
             tcl = Tcl.from_json(file_name)
             agents_list.append(tcl)
 
-
+    params.rho = rho
     ##Optimisation : Frank Wolfe + recombinaison sur liste "agents_list" complete (on rajoute le suffixe "_all" aux fichiers de sorties )
     suffix = "_all"
     print("\nRunning optimize for all agents")
-    (agent_profiles_dict, agent_costs_dict, best_iteration_per_agent) = optimize(params, agents_list, suffix)
+    (agent_profiles_dict, agent_costs_dict, best_iteration_per_agent) = optimize(params, agents_list, suffix, type_optim, function_for_num_try)
 
     print("\nSolution recombinée :")
     print(best_iteration_per_agent)
 
 if __name__=="__main__":
-    main()
+    
+    parser = argparse.ArgumentParser(description="Script pour créer des TCLs.")
+    parser.add_argument(
+        "-rho",
+        type=float,
+        default=.1,
+        help="valeur de rho (par défaut : .1)."
+    )
+    parser.add_argument(
+        "-optim",
+        type=str,
+        default=.1,
+        help="type d'optimisation ('fixed_step', 'line_search', 'fully_corrective', 'convexe')."
+    )
+    parser.add_argument(
+        "-f_ntry",
+        type=float,
+        default=.1,
+        help="function for num_try ('constant_to_1', 'constant_to_5', 'sqrt', 'linear', 'quadratic')."
+    )
+    
+    args = parser.parse_args()
+
+    main(rho=args.rho, type_optim=args.optim, function_for_num_try=args.f_ntry)

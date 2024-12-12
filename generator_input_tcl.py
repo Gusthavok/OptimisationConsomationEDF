@@ -52,4 +52,4 @@ if __name__ == '__main__':
         with open(json_path, 'w') as fichier:
             json.dump(dico, fichier, indent=4)
 
-    print(f"{number_of_tcl_to_create} crés")
+    print(f"{number_of_tcl_to_create} tcls created")

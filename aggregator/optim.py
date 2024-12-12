@@ -8,8 +8,26 @@ from .step_optimization import *
 os.environ['XPRESS'] = '/opt/shared/agregi/env_python/bin/xpauth.xpr'
 
 
-def optimize(params, agents_list, suffix: str) :
-    optim_frankwolfe_fixed_step_relaxation_convexe(params, agents_list, suffix)
+def optimize(params, agents_list, suffix: str, type_optim, function_numtry_name) :
+    if type_optim=="fixed_step":
+        print(f"optimisation via pas fixés de {len(agents_list)} tcls, avec un rho égal à {params.rho} et en utilisant la fonction de num_try :{function_numtry_name}")
+        optim_frankwolfe_fixed_step(params, agents_list, suffix, index_function_choice=function_numtry_name)
+    elif type_optim=="convexe":
+        print(f"optimisation via relaxation convexe de {len(agents_list)} tcls, avec un rho égal à {params.rho}")
+        optim_frankwolfe_fixed_step_relaxation_convexe(params, agents_list, suffix)
+    elif type_optim=="line_search":
+        print(f"optimisation via lile search de {len(agents_list)} tcls, avec un rho égal à {params.rho} et en utilisant la fonction de num_try :{function_numtry_name}")
+        params.depth_fully_corrective=2
+        optim_frankwolfe_line_search_and_fully_corrective(params, agents_list, suffix, index_function_choice=function_numtry_name)
+    elif type_optim=="fully_corrective":
+        print(f"optimisation via fully corrective de {len(agents_list)} tcls, avec un rho égal à {params.rho} et en utilisant la fonction de num_try :{function_numtry_name}")
+        params.depth_fully_corrective=200
+        optim_frankwolfe_line_search_and_fully_corrective(params, agents_list, suffix, index_function_choice=function_numtry_name)
+    else:
+        raise NameError(f"le type d'optim {type_optim} n'est pas défini") 
+
+
+        
 
 
 def optim_frankwolfe_fixed_step(params, agents_list, suffix: str, lambda_start=np.zeros(48), index_function_choice="constant_to_1"):
