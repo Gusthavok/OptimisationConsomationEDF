@@ -238,8 +238,12 @@ def optim_frankwolfe_fixed_step_relaxation_convexe(params, agents_list, suffix: 
         new_iteration.averaged_cost_aggregator = fobj(params, new_iteration.averaged_load_profile_aggregator)
         
         # tcls : 
-        new_iteration.stochastic_load_profiles_tcl = {agent.name: step_it*new_iteration.load_profiles_tcl[agent.name] + (1-step_it)*last_iteration.stochastic_load_profiles_tcl[agent.name] for agent in agents_list} # les noms de variables sont un peu bizarre, plus que les profiles sont moyenés (averaged) et non choisi de manière stochastique
-        new_iteration.stochastic_costs_tcl = {agent.name: step_it*new_iteration.costs_tcl[agent.name] + (1-step_it)*last_iteration.stochastic_costs_tcl[agent.name] for agent in agents_list} # same
+        if num_it>0:
+            new_iteration.stochastic_load_profiles_tcl = {agent.name: step_it*new_iteration.load_profiles_tcl[agent.name] + (1-step_it)*last_iteration.stochastic_load_profiles_tcl[agent.name] for agent in agents_list} # les noms de variables sont un peu bizarre, plus que les profiles sont moyenés (averaged) et non choisi de manière stochastique
+            new_iteration.stochastic_costs_tcl = {agent.name: step_it*new_iteration.costs_tcl[agent.name] + (1-step_it)*last_iteration.stochastic_costs_tcl[agent.name] for agent in agents_list} # same
+        else:
+            new_iteration.stochastic_load_profiles_tcl = new_iteration.load_profiles_tcl
+            new_iteration.stochastic_costs_tcl = new_iteration.costs_tcl
 
         individual_costs = build_dico_individual_cost(new_iteration.stochastic_load_profiles_tcl, agents_list)
         cout_minimal = objective_fun(params, new_iteration.averaged_load_profile_aggregator, new_iteration.stochastic_load_profiles_tcl, agents_list, individual_costs)
