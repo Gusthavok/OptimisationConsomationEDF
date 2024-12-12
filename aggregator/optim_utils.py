@@ -11,14 +11,14 @@ class Iteration:
     def __init__(self, agents_list):
         # Optimized points (usefull to store for fully corrective and line search)
         self.load_profiles_tcl = { agent_bb.name: np.zeros(48) for agent_bb in agents_list}
-        self.costs_tcl = {agent_bb.name: 0 for agent_bb in agents_list}
+        self.costs_tcl = {}
         self.lambdas = {} 
         self.load_profile_aggregator = np.zeros(48)
         self.cost_aggregator=0
         
         # Solution proposed by the algorithm (throught stochastic selection for tcl) : 
         self.stochastic_load_profiles_tcl = { agent_bb.name: np.zeros(48) for agent_bb in agents_list}
-        self.stochastic_costs_tcl = {agent_bb.name: 0 for agent_bb in agents_list}
+        self.stochastic_costs_tcl = {}
         self.averaged_load_profile_aggregator = np.zeros(48)
         self.averaged_cost_aggregator = 0
 
@@ -220,7 +220,7 @@ def get_best_try(tab_bernouilli: np.ndarray, liste_iteration : list[Iteration], 
         test_stochastic_costs={}
         for k, agent_bb in enumerate(agents_list):
             iteration_indice = round(tab_bernouilli[test][k])
-            if (iteration_indice == len(liste_iteration)) or (fully_corrective): 
+            if (iteration_indice == len(liste_iteration)-1) or (fully_corrective): 
                 test_stochastic_profiles[agent_bb.name] = liste_iteration[iteration_indice].load_profiles_tcl[agent_bb.name] 
                 test_stochastic_costs[agent_bb.name] = liste_iteration[iteration_indice].costs_tcl[agent_bb.name] 
             else: # pour linesearch, on prends le profil moyenné précédent

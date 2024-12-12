@@ -71,8 +71,12 @@ def optim_frankwolfe_fixed_step(params, agents_list, suffix: str, lambda_start=n
         new_iteration.load_profiles_tcl,  new_iteration.costs_tcl = get_partial_optimization(flags, agents_list, new_iteration.lambdas)
         
         # Détermination du tirage parmis les différents tirage réalisés (dimension num_try de bernouilli) qui minimise la fonction à optimiser. 
-        new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl, cout_minimal = get_best_try(tab_bernouilli, [last_iteration, new_iteration], agents_list, params)
-
+        if num_it>0:
+            new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl, cout_minimal = get_best_try(tab_bernouilli, [last_iteration, new_iteration], agents_list, params)
+        else:
+            new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl = new_iteration.load_profiles_tcl, new_iteration.costs_tcl
+            individual_costs = build_dico_individual_cost(new_iteration.stochastic_load_profiles_tcl, agents_list)
+            cout_minimal = objective_fun(params, new_iteration.averaged_load_profile_aggregator, new_iteration.stochastic_load_profiles_tcl, agents_list, individual_costs)
 
         ##### Save results of the iteration ##### 
         # Graphics
@@ -97,6 +101,9 @@ def optim_frankwolfe_fixed_step(params, agents_list, suffix: str, lambda_start=n
         graphiques.save_to_file(file_name)
 
         # Profiles
+        if num_it==0:
+            list_of_iterations = []
+            step_it = 1
         list_of_iterations.append(new_iteration)    
 
 def optim_frankwolfe_line_search_and_fully_corrective(params, agents_list, suffix: str, lambda_start=np.zeros(48), index_function_choice="sqrt"):
@@ -158,18 +165,25 @@ def optim_frankwolfe_line_search_and_fully_corrective(params, agents_list, suffi
             num_try = function_choice[index_function_choice](num_it)
             tab_bernouilli, _ = get_num_tcl_to_optimize(num_it, step_it[1], num_try, len(agents_list)) # on peut encore faire comme ca, mais pour fully corrective ce sera plus galere
             #-> Détermination du tirage parmis les différents tirage réalisés (dimension num_try de bernouilli) qui minimise la fonction à optimiser. 
-            new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl, cout_minimal = get_best_try(tab_bernouilli, [last_iteration, new_iteration], agents_list, params)
-
+            if num_it>0:
+                new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl, cout_minimal = get_best_try(tab_bernouilli, [last_iteration, new_iteration], agents_list, params)
+            else:
+                new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl = new_iteration.load_profiles_tcl, new_iteration.costs_tcl
+                individual_costs = build_dico_individual_cost(new_iteration.stochastic_load_profiles_tcl, agents_list)
+                cout_minimal = objective_fun(params, new_iteration.averaged_load_profile_aggregator, new_iteration.stochastic_load_profiles_tcl, agents_list, individual_costs)
         else:
             new_iteration.averaged_load_profile_aggregator = sum([step_it[k]*iteration.load_profile_aggregator for k, iteration in enumerate(list_of_iterations + [new_iteration])])
             new_iteration.averaged_cost_aggregator = fobj(params, new_iteration.averaged_load_profile_aggregator)
             
             num_try = function_choice[index_function_choice](num_it)
             tab_bernouilli = np.random.choice(len(step_it), size=(num_try, len(agents_list)), p=step_it)
-
-            new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl, cout_minimal = get_best_try(tab_bernouilli, list_of_iterations + [new_iteration], agents_list, params, fully_corrective=True)
-
-        ##### Save results of the iteration ##### 
+            if num_it>0:
+                new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl, cout_minimal = get_best_try(tab_bernouilli, list_of_iterations + [new_iteration], agents_list, params, fully_corrective=True)
+            else:
+                new_iteration.stochastic_load_profiles_tcl, new_iteration.stochastic_costs_tcl = new_iteration.load_profiles_tcl, new_iteration.costs_tcl
+                individual_costs = build_dico_individual_cost(new_iteration.stochastic_load_profiles_tcl, agents_list)
+                cout_minimal = objective_fun(params, new_iteration.averaged_load_profile_aggregator, new_iteration.stochastic_load_profiles_tcl, agents_list, individual_costs)
+                ##### Save results of the iteration ##### 
         # Graphics
         graphiques.add_to_graphics(cout_min=cout_minimal, 
                                            time=time.time()-t_init_iter, 
@@ -183,9 +197,9 @@ def optim_frankwolfe_line_search_and_fully_corrective(params, agents_list, suffi
         graphiques.create_graphic(file_name) # add a ".png"
         graphiques.save_to_file(file_name)
 
-        # if num_it==0:
-        #     list_of_iterations = []
-        #     step_it = [1]
+        if num_it==0:
+            list_of_iterations = []
+            step_it = [1]
         
         if len(list_of_iterations) >= memory_size-1:
             list_of_iterations.pop(0) 
