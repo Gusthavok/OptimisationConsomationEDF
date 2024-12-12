@@ -1,5 +1,4 @@
 import numpy as np
 
-bernouilli = np.random.binomial(n=1, p=.5, size=(10, 4))
-print(bernouilli)
-print(max(.1, None))
+toto=np.random.choice(3, size=(5, 2), p=[.2, .3, .5])
+print(toto)

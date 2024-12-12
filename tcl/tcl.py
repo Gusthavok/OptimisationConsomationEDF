@@ -61,14 +61,17 @@ class Tcl (Agent):
             temp_profile[t] = temp_profile[t - 1] + load_profile[t] * self.coefConso*self.dt + self.dt*self.coefDeltaTemp*(self.chroniqueTempExt[t-1]-temp_profile[t-1])
         return temp_profile
 
-    def solve_optim_model(self, signal):
+    def solve_optim_model(self, signal, mode_convexe=False):
         m = linopy.Model()
         T = len(self.electricity_cost)
         p = {}
         state = {}
         obj_expr = 0
         for t in range(T):
-            z = m.add_variables(name="z_{}".format(t), binary=True)
+            if mode_convexe:
+                z = m.add_variables(name=f"z_{t}", lower=0, upper=1)
+            else:
+                z = m.add_variables(name="z_{}".format(t), binary=True) 
             p[t] = self.puissanceMin + z * (self.puissanceMax - self.puissanceMin)
             
             obj_expr += p[t] * (self.electricity_cost[t] *self.dt + signal[t])
@@ -93,8 +96,8 @@ class Tcl (Agent):
 
         return (total_cost, total_load)
 
-    def tcl_update_load(self,signal, path= None):
-        (total_cost, total_load) = self.solve_optim_model(signal)
+    def tcl_update_load(self,signal, mode_convexe=False, path= None):
+        (total_cost, total_load) = self.solve_optim_model(signal, mode_convexe=mode_convexe)
         facture = self.individual_cost(total_load)
         dico = {"load" : list(total_load),
                 'cost' : total_cost, 
