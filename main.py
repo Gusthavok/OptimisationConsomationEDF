@@ -92,7 +92,7 @@ if __name__=="__main__":
     )
     parser.add_argument(
         "-f_ntry",
-        type=float,
+        type=str,
         default=.1,
         help="function for num_try ('constant_to_1', 'constant_to_5', 'sqrt', 'linear', 'quadratic')."
     )
