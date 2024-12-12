@@ -1,10 +1,9 @@
 import os
 import json
-import sys
 from numpy import random
 import pickle
+import argparse
 
-from tcl.tcl import Tcl
 from tcl.temperature_generation import generate_daily_temperature_profile
 
 def construction_pmax(coefDeltaTemp,coefConso, ecart_temperature_max,minimal_power):
@@ -13,7 +12,19 @@ def construction_pmax(coefDeltaTemp,coefConso, ecart_temperature_max,minimal_pow
 
 if __name__ == '__main__':
 
-    number_of_tcl_to_create = 50
+    parser = argparse.ArgumentParser(description="Script pour créer des TCLs.")
+    
+    parser.add_argument(
+        "-ntcl",
+        type=int,
+        default=50,
+        help="Le nombre de TCL à créer (par défaut : 50)."
+    )
+    
+    args = parser.parse_args()
+    
+    number_of_tcl_to_create = args.ntcl
+    
     for k in range(1,number_of_tcl_to_create+1):
         nom_tcl = "tcl"+str(k)
         os.makedirs(os.path.join("tcl/input",nom_tcl), exist_ok=True)
@@ -40,3 +51,5 @@ if __name__ == '__main__':
         json_path = os.path.join("tcl/input",nom_tcl,nom_tcl+'.json')
         with open(json_path, 'w') as fichier:
             json.dump(dico, fichier, indent=4)
+
+    print(f"{number_of_tcl_to_create} crés")
