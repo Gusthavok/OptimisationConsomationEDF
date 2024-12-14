@@ -1,0 +1,195 @@
+Running HiGHS 1.5.3 [date: 2023-05-16, git hash: 594fa5a9d-dirty]
+Copyright (c) 2023 HiGHS under MIT licence terms
+Presolving model
+4 rows, 2 cols, 4 nonzeros
+0 rows, 0 cols, 0 nonzeros
+Presolve : Reductions: rows 0(-94); columns 0(-50); elements 0(-100) - Reduced to empty
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Objective value     : -4.0000000000e+02
+HiGHS run time      :          0.01
+Running HiGHS 1.5.3 [date: 2023-05-16, git hash: 594fa5a9d-dirty]
+Copyright (c) 2023 HiGHS under MIT licence terms
+Presolving model
+46 rows, 93 cols, 138 nonzeros
+46 rows, 93 cols, 138 nonzeros
+Objective function is integral with scale 1250
+
+Solving MIP model with:
+   46 rows
+   93 cols (47 binary, 0 integer, 0 implied int., 46 continuous)
+   138 nonzeros
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+     Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.0s
+
+Solving report
+  Status            Optimal
+  Primal bound      0.4136
+  Dual bound        0.4136
+  Gap               0% (tolerance: 0.01%)
+  Solution status   feasible
+                    0.4136 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            0.01 (total)
+                    0.00 (presolve)
+                    0.00 (postsolve)
+  Nodes             1
+  LP iterations     51 (total)
+                    0 (strong br.)
+                    0 (separation)
+                    0 (heuristics)
+Running HiGHS 1.5.3 [date: 2023-05-16, git hash: 594fa5a9d-dirty]
+Copyright (c) 2023 HiGHS under MIT licence terms
+Presolving model
+46 rows, 93 cols, 138 nonzeros
+46 rows, 93 cols, 138 nonzeros
+Objective function is integral with scale 1250
+
+Solving MIP model with:
+   46 rows
+   93 cols (47 binary, 0 integer, 0 implied int., 46 continuous)
+   138 nonzeros
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+     Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.0s
+         0       0         0   0.00%   3.208729709     inf                  inf        0      0      2        77     0.0s
+ R       0       0         0   0.00%   3.387984523     3.6672             7.61%      364     78      8       155     0.0s
+
+Restarting search from the root node
+Model after restart has 45 rows, 91 cols (46 bin., 0 int., 0 impl., 45 cont.), and 135 nonzeros
+
+      2504       0         0   0.00%   3.458141954     3.6672             5.70%       63      0      0     13131     1.2s
+      2504       0         0   0.00%   3.458141954     3.6672             5.70%       63     16      2     13177     1.2s
+
+Restarting search from the root node
+Model after restart has 45 rows, 91 cols (46 bin., 0 int., 0 impl., 45 cont.), and 135 nonzeros
+
+      5520       0         0   0.00%   3.467850652     3.6672             5.44%       82      0      0     24242     2.6s
+      5520       0         0   0.00%   3.467850652     3.6672             5.44%       82     18      2     24305     2.6s
+     17773     416      5767  67.77%   3.527618023     3.6672             3.81%     1658     83   9933     68307     7.6s
+     27928     442     10722  90.72%   3.581016675     3.6672             2.35%     1187     76   9263    118096    12.8s
+
+Restarting search from the root node
+
+Solving report
+  Status            Optimal
+  Primal bound      3.6672
+  Dual bound        3.6672
+  Gap               0% (tolerance: 0.01%)
+  Solution status   feasible
+                    3.6672 (objective)
+                    0 (bound viol.)
+                    5.89284177011e-12 (int. viol.)
+                    0 (row viol.)
+  Timing            17.49 (total)
+                    0.00 (presolve)
+                    0.00 (postsolve)
+  Nodes             36326
+  LP iterations     165751 (total)
+                    3229 (strong br.)
+                    30897 (separation)
+                    8532 (heuristics)
+Running HiGHS 1.5.3 [date: 2023-05-16, git hash: 594fa5a9d-dirty]
+Copyright (c) 2023 HiGHS under MIT licence terms
+Presolving model
+46 rows, 93 cols, 138 nonzeros
+46 rows, 93 cols, 138 nonzeros
+Objective function is integral with scale 1250
+
+Solving MIP model with:
+   46 rows
+   93 cols (47 binary, 0 integer, 0 implied int., 46 continuous)
+   138 nonzeros
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+     Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.0s
+         0       0         0   0.00%   3.409625363     inf                  inf        0      0      2        79     0.0s
+ R       0       0         0   0.00%   3.653703914     3.7568             2.74%     1513    167     30       291     0.0s
+
+2.1% inactive integer columns, restarting
+Model after restart has 45 rows, 91 cols (46 bin., 0 int., 0 impl., 45 cont.), and 135 nonzeros
+
+         0       0         0   0.00%   3.653703914     3.7568             2.74%       25      0      0      1103     0.2s
+         0       0         0   0.00%   3.653703914     3.7568             2.74%       25     22      2      1155     0.2s
+
+Solving report
+  Status            Optimal
+  Primal bound      3.7568
+  Dual bound        3.7568
+  Gap               0% (tolerance: 0.01%)
+  Solution status   feasible
+                    3.7568 (objective)
+                    0 (bound viol.)
+                    2.32760366536e-10 (int. viol.)
+                    0 (row viol.)
+  Timing            1.67 (total)
+                    0.00 (presolve)
+                    0.00 (postsolve)
+  Nodes             2488
+  LP iterations     19571 (total)
+                    2517 (strong br.)
+                    2458 (separation)
+                    2755 (heuristics)
+Running HiGHS 1.5.3 [date: 2023-05-16, git hash: 594fa5a9d-dirty]
+Copyright (c) 2023 HiGHS under MIT licence terms
+Presolving model
+46 rows, 93 cols, 138 nonzeros
+45 rows, 92 cols, 136 nonzeros
+Objective function is integral with scale 1250
+
+Solving MIP model with:
+   45 rows
+   92 cols (47 binary, 0 integer, 0 implied int., 45 continuous)
+   136 nonzeros
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+     Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.0s
+
+Solving report
+  Status            Optimal
+  Primal bound      0
+  Dual bound        0
+  Gap               0% (tolerance: 0.01%)
+  Solution status   feasible
+                    0 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            0.00 (total)
+                    0.00 (presolve)
+                    0.00 (postsolve)
+  Nodes             1
+  LP iterations     39 (total)
+                    0 (strong br.)
+                    0 (separation)
+                    0 (heuristics)
+
+Running optimize for all agents
+optimisation via lile search de 250 tcls, avec un rho égal à 0.05 et en utilisant la fonction de num_try :constant_to_5
+
+Iteration Frank-Wolfe :  0 (agents:  _all )
+Traceback (most recent call last):
+  File "/Data/augustin.kheng/MAP511/OptimisationConsomationEDF/main.py", line 102, in <module>
+    main(rho=args.rho, type_optim=args.optim, function_for_num_try=args.f_ntry)
+  File "/Data/augustin.kheng/MAP511/OptimisationConsomationEDF/main.py", line 73, in main
+    (agent_profiles_dict, agent_costs_dict, best_iteration_per_agent) = optimize(params, agents_list, suffix, type_optim, function_for_num_try)
+  File "/Data/augustin.kheng/MAP511/OptimisationConsomationEDF/aggregator/optim.py", line 21, in optimize
+    optim_frankwolfe_line_search_and_fully_corrective(params, agents_list, suffix, index_function_choice=function_numtry_name)
+  File "/Data/augustin.kheng/MAP511/OptimisationConsomationEDF/aggregator/optim.py", line 143, in optim_frankwolfe_line_search_and_fully_corrective
+    new_iteration.load_profiles_tcl, new_iteration.costs_tcl = get_partial_optimization(flags, agents_list, new_iteration.lambdas)
+  File "/Data/augustin.kheng/MAP511/OptimisationConsomationEDF/aggregator/optim_utils.py", line 199, in get_partial_optimization
+    agent.tcl_update_load(lambdas[agent.name], mode_convexe=mode_convexe, path = path)
+  File "/Data/augustin.kheng/MAP511/OptimisationConsomationEDF/tcl/tcl.py", line 110, in tcl_update_load
+    with open(json_path, 'w') as fichier:
+FileNotFoundError: [Errno 2] No such file or directory: '/Data/augustin.kheng/MAP511/OptimisationConsomationEDF/tcl/output/tcl101/tcl101.json'
