@@ -165,3 +165,5 @@ tcl/output/tcl*
 
 *.csv
 optim_2024*
+
+nohup.out
