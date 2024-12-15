@@ -133,7 +133,7 @@ def load_graphics_from_files(file_list):
     return graphics_instances
 
 # Fonction pour tracer des courbes superposées.
-def create_superposed_graphics(graphics_instances, list_names, filename, x_log=False, y_log=False, y_symlog=False, linthreshy=1, y_min=None, y_max=None):
+def create_superposed_graphics(graphics_instances, list_names, filename, x_log=False, y_log=False, y_symlog=False, linthreshy=1, y_min=None, y_max=None, y_label=""):
     """
     Trace et sauvegarde un graphique avec des courbes superposées.
 
@@ -172,8 +172,7 @@ def create_superposed_graphics(graphics_instances, list_names, filename, x_log=F
 
     # Légende et labels
     plt.xlabel('Iterations')
-    plt.ylabel('Valeurs')
-    plt.title('Superposition des courbes')
+    plt.ylabel(y_label)
     plt.legend()
 
     # Sauvegarde du graphique
