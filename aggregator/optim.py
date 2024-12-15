@@ -44,7 +44,7 @@ def optim_frankwolfe_fixed_step(params, agents_list, suffix: str, lambda_start=n
                        "sqrt": lambda x: 1 + int(np.sqrt(x)), 
                        "linear": lambda x: x, 
                        "quadratic": lambda x:x**2}
-    file_name = f"./output/optim/fixed_step/ntcl:{len(agents_list)}_function_choice:{index_function_choice}_rho:{str(params.rho)}"
+    file_name = f"./output/optim/fixed_step/ntcl:{len(agents_list)}_function_choice:no_keep_last_rho:{str(params.rho)}"
 
     
     for num_it in range(params.max_iter_FrankWolfe):
