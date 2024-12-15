@@ -177,16 +177,17 @@ def create_superposed_graphics(graphics_instances, list_names, filename, x_log=F
     plt.legend()
 
     # Sauvegarde du graphique
-    plt.savefig(filename)
+    plt.savefig("./graphs/"+filename)
     plt.close()
 
 
-def get_num_tcl_to_optimize(num_it, step_it, num_try, number_of_agent):
+def get_num_tcl_to_optimize(num_it, step_it, num_try, number_of_agent, no_keeping_last=False):
     if num_it == 0: # A la première iteration, on optimise tous les tcls. 
         tab_bernouilli = np.ones((1, number_of_agent))
     else:
         tab_bernouilli = np.random.binomial(n=1, p=step_it, size=(num_try, number_of_agent))
-        tab_bernouilli = np.concatenate((np.zeros(shape=(1, number_of_agent)), tab_bernouilli), axis=0) # On se garde la possibilité de ne pas faire de modification. (Bien sur l'aggregateur bougera quand meme)
+        if not no_keeping_last:
+            tab_bernouilli = np.concatenate((np.zeros(shape=(1, number_of_agent)), tab_bernouilli), axis=0) # On se garde la possibilité de ne pas faire de modification. (Bien sur l'aggregateur bougera quand meme)
     flags = np.sum(tab_bernouilli, axis=0)
     return tab_bernouilli, flags
 

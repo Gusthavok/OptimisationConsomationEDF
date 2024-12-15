@@ -34,8 +34,12 @@ def optim_frankwolfe_fixed_step(params, agents_list, suffix: str, lambda_start=n
 
     graphiques = Graphiques()
     list_of_iterations = [Iteration(agents_list)]
-    
-    function_choice = {"constant_to_1": lambda x: 1, 
+    no_keep_last=False
+    if index_function_choice=="no_keep_last":
+        no_keep_last=True
+        index_function_choice="constant_to_1"
+    function_choice = {"constant_to_1": lambda x: 1,
+                       "constant_to_200": lambda x: 200, 
                        "constant_to_5": lambda x: 5,
                        "sqrt": lambda x: 1 + int(np.sqrt(x)), 
                        "linear": lambda x: x, 
@@ -65,7 +69,7 @@ def optim_frankwolfe_fixed_step(params, agents_list, suffix: str, lambda_start=n
         ##### Optimisation des sous problèmes de TCL #####
         # Choix stochastique des tcl qui seront optimisés
         num_try = function_choice[index_function_choice](num_it)
-        tab_bernouilli, flags = get_num_tcl_to_optimize(num_it, step_it, num_try, len(agents_list))
+        tab_bernouilli, flags = get_num_tcl_to_optimize(num_it, step_it, num_try, len(agents_list), no_keeping_last=no_keep_last)
         
         # Optimisations du profil des tcls qui ont étés tirés
         new_iteration.load_profiles_tcl,  new_iteration.costs_tcl = get_partial_optimization(flags, agents_list, new_iteration.lambdas)
