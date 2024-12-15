@@ -37,7 +37,7 @@ class Parameters :
         self.spot_prices=np.array([1 for k in range(self.nombre_rectangles)]) #np.array([30 for k in range(self.nombre_rectangles)])
 
         #optim params
-        self.max_iter_FrankWolfe = 200 #int(sys.argv[1]) if len(sys.argv) > 1 else 200
+        self.max_iter_FrankWolfe = 800 #int(sys.argv[1]) if len(sys.argv) > 1 else 200
         self.rho = .05
         self.fully_corrective = False # Si utilisation de FWS, mettre False.
         self.depth_fully_corrective = 200 # linesearch # nombre des précédentes ittérations dont nous souhaitons garder la solution à leur sous pb
