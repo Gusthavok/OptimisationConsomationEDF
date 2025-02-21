@@ -133,7 +133,7 @@ def load_graphics_from_files(file_list):
     return graphics_instances
 
 # Fonction pour tracer des courbes superposées.
-def create_superposed_graphics(graphics_instances, list_names, filename, x_log=False, y_log=False, y_symlog=False, linthreshy=1, y_min=None, y_max=None, y_label=""):
+def create_superposed_graphics(graphics_instances, list_names, filename, x_log=False, y_log=False, y_symlog=False, linthreshy=1, y_min=None, y_max=None, y_label="", truncate=None, ntcl=100):
     """
     Trace et sauvegarde un graphique avec des courbes superposées.
 
@@ -157,6 +157,11 @@ def create_superposed_graphics(graphics_instances, list_names, filename, x_log=F
             data = getattr(graphic, list_name, None)
             if data is not None and len(data) > 0:
                 # Ajout de la courbe au graphique
+                if list_name=="cout_min_liste":
+                    data = [2+item/ntcl for item in data]
+                
+                if truncate is not None:
+                    data = data[:truncate]
                 plt.plot(range(len(data)), data, label=f"{legend_name}")
 
     # Configuration des axes
@@ -185,12 +190,8 @@ def get_num_tcl_to_optimize(num_it, step_it, num_try, number_of_agent, no_keepin
         tab_bernouilli = np.ones((1, number_of_agent))
     else:
         tab_bernouilli = np.random.binomial(n=1, p=step_it, size=(num_try, number_of_agent))
-<<<<<<< Updated upstream
         if not no_keeping_last:
             tab_bernouilli = np.concatenate((np.zeros(shape=(1, number_of_agent)), tab_bernouilli), axis=0) # On se garde la possibilité de ne pas faire de modification. (Bien sur l'aggregateur bougera quand meme)
-=======
-        # tab_bernouilli = np.concatenate((np.zeros(shape=(1, number_of_agent)), tab_bernouilli), axis=0) # On se garde la possibilité de ne pas faire de modification. (Bien sur l'aggregateur bougera quand meme)
->>>>>>> Stashed changes
     flags = np.sum(tab_bernouilli, axis=0)
     return tab_bernouilli, flags
 

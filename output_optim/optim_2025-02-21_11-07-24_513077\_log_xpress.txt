@@ -1,0 +1,8 @@
+Presolving model
+4 rows, 2 cols, 4 nonzeros
+0 rows, 0 cols, 0 nonzeros
+Presolve : Reductions: rows 0(-94); columns 0(-50); elements 0(-100) - Reduced to empty
+Solving the original LP from the solution after postsolve
+Model   status      : Optimal
+Objective value     : -4.0000000000e+02
+HiGHS run time      :          0.00
